@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * Description: fixed code so that it correctly prints the largest of 3 numbers
+ * largest_number - returns the largest of 3 numbers
  * @a: first int
  * @b: second int
  * @c: third int
