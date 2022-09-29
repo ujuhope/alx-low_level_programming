@@ -1,73 +1,56 @@
 #include "main.h"
+
 /**
-* substring_match - check if a substring after wildcard matches s1
-* @s1: one string
-* @s2: one string
-* @after_wldcd: placeholder for position right after wildcard
-* Return: 1 if matched, 0 if not
+* length - helps do it
+* @s: string
+* Return: string length
 */
-int is_palindrome(char *s);
 
-
-int substring_match(char *s1, char *s2, char *after_wldcd)
-
+int length(char *s)
 {
+int i = 0;
 
-if (*s1 == '\0' && *s2 == '\0')
-
-return (1);
-
-if (*s1 == '\0' && *s2 == '*')
-
-return (substring_match(s1, s2 + 1, s2 + 1));
-
-if (*s1 == '\0' && *s2 != '\0')
-
+if (*s)
+{
+i = i + length(s + 1);
+return (i += 1);
+}
 return (0);
-
-if (*s2 == '*')
-
-return (substring_match(s1, s2 + 1, s2 + 1));
-
-if (*s1 == *s2)
-
-return (substring_match(s1 + 1, s2 + 1, after_wldcd));
-
-else
-
-return (substring_match(s1 + 1, after_wldcd, after_wldcd));
-
 }
 
-
-
 /**
-* wildcmp - compare if string with wildcard mattches
-* @s1: one string
-* @s2: one string
-* Return: 1 if matched, 0 if not
+* helper2 - helps more
+* @i: integer i
+* @s: string
+* Return: int value
 */
 
-
-
-int wildcmp(char *s1, char *s2)
-
+int helper2(int i, char *s)
 {
-
-if (*s1 == '\0' && *s2 == '\0')
-
-return (1);
-
-if (*s1 == *s2)
-
-return (wildcmp(s1 + 1, s2 + 1));
-
-else if (*s2 == '*')
-
-return (substring_match(s1, (s2 + 1), (s2 + 1)));
-
-else
-
+if (*s)
+{
+if (*s != s[length(s) - i])
+{
 return (0);
+}
+else
+{
+return (helper2(i + 1, s + 1));
+}
+}
+return (1);
+}
+
+/**
+* is_palindrome - is it paldindrome
+* @s: string to check
+* Return: boolean
+*/
+
+int is_palindrome(char *s)
+{
+int i = 1;
+
+return (helper2(i, s));
 
 }
