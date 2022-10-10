@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "dog.h"
+#include <stdlib.h>
 /**
  * desc:a function that prints a struct dog. If an element of d is NULL, print (* nil) instead of this element. (if name is NULL, print Name: (nil))
 * If d is NULL print nothing.
