@@ -3,7 +3,7 @@
 /**
  * hash_table_set - Add or update an element in a hash table.
  * @ht: A pointer to the hash table.
- * @key: The key to add - cannot be an empty string.
+ * @key: The key to add - can not be an empty string.
  * @value: The value associated with key.
  *
  * Return: Upon failure - 0.
